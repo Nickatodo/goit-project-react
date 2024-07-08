@@ -12,11 +12,14 @@ export default function Navigation() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Registration />} />
+        <Route path="/goit-project-react/" element={<Home />} />
+        <Route path="/goit-project-react/login" element={<Login />} />
         <Route
-          path="/user-home"
+          path="/goit-project-react/registration"
+          element={<Registration />}
+        />
+        <Route
+          path="/goit-project-react/user-home"
           element={<ProtectedRoute element={UserHome} />}
         />
         <Route path="*" element={<Home />} />

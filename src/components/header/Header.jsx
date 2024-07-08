@@ -29,10 +29,12 @@ const Header = () => {
         </NavContainerLogo>
         <NavList>
           <NavItem>
-            <NavLink to="/login">Log in</NavLink>
+            <NavLink to="/goit-project-react/login">Log in</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="/registration">Registration</NavLink>
+            <NavLink to="/goit-project-react/registration">
+              Registration
+            </NavLink>
           </NavItem>
         </NavList>
       </Nav>
