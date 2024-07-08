@@ -58,8 +58,8 @@ const Home = () => {
           </label>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="blood-group">Grupo sanguíneo*</label>
+        <div class="form-group" style="width: 240px;">
+          <label for="blood-group">Grupo sanguíneo*</label>
         </div>
 
         <button type="submit" className="form-button_home">
