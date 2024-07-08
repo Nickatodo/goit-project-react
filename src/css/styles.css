@@ -1,0 +1,25 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('./reset.css');
+@import url('./body.css');
+@import url('./header.css');
+@import url('./login.css');
+@import url('./register.css');
+
+:root {
+  font-family: "Jost", sans-serif, Inter, Avenir, Helvetica, Arial, sans-serif;
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
