@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const HeaderContainer = styled.header`
   width: 100%;
@@ -72,7 +73,7 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li``;
 
-export const NavLink = styled.a`
+export const NavLink = styled(Link)`
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 0.04em;
@@ -80,7 +81,7 @@ export const NavLink = styled.a`
   align-content: center;
   text-transform: uppercase;
   color: rgba(155, 159, 170, 1);
-  
+
   &:hover,
   &:focus {
     color: rgba(252, 132, 45, 1);

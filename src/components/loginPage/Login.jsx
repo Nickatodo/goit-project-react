@@ -1,13 +1,40 @@
 import React from 'react';
 import '../../css/styles.css';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginThunk } from '../../redux/operators/authOperator';
+import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+export default function LoginPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = e => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = e => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const response = await dispatch(loginThunk({ email, password }));
+    if (response.meta.requestStatus === 'fulfilled') {
+      navigate('/user-home');
+    } else {
+      console.error('Login failed');
+    }
+  };
+
   return (
     <div>
       <main>
         <div className="login-form-container">
           <h2 className="login-title">Log in</h2>
-          <form className="login-form" id="loginForm">
+          <form className="login-form" id="loginForm" onSubmit={handleSubmit}>
             <div className="login-form-group">
               <input
                 type="email"
@@ -16,6 +43,7 @@ const LoginPage = () => {
                 className="form-input"
                 placeholder=" "
                 required
+                onChange={handleEmailChange}
               />
               <label htmlFor="email" className="form-label">
                 Email *
@@ -29,6 +57,7 @@ const LoginPage = () => {
                 className="form-input"
                 placeholder=" "
                 required
+                onChange={handlePasswordChange}
               />
               <label htmlFor="password" className="form-label">
                 Password *
@@ -47,6 +76,4 @@ const LoginPage = () => {
       </main>
     </div>
   );
-};
-
-export default LoginPage;
+}
