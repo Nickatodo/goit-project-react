@@ -58,7 +58,7 @@ const Home = () => {
           </label>
         </div>
 
-        <div class="form-group" style="width: 240px;">
+        <div class="form-group" style={{ width: '240px' }}>
           <label for="blood-group">Grupo sanguíneo*</label>
         </div>
 
