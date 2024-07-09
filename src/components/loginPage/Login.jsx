@@ -23,7 +23,7 @@ export default function LoginPage() {
     e.preventDefault();
     const response = await dispatch(loginThunk({ email, password }));
     if (response.meta.requestStatus === 'fulfilled') {
-      navigate('/user-home');
+      navigate('/goit-project-react/user-home');
     } else {
       console.error('Login failed');
     }
