@@ -21,12 +21,20 @@ export default function LoginPage() {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = await dispatch(loginThunk({ email, password }));
-    if (response.meta.requestStatus === 'fulfilled') {
-      navigate('/goit-project-react/user-home');
-    } else {
-      console.error('Login failed');
+    try {
+      const response = await dispatch(loginThunk({ email, password }));
+      if (response.meta.requestStatus === 'fulfilled') {
+        navigate('/goit-project-react/user-calculator');
+      } else {
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
     }
+  };
+
+  const handleregister = () => {
+    navigate('/goit-project-react/registration');
   };
 
   return (
@@ -67,7 +75,11 @@ export default function LoginPage() {
               <button type="submit" className="login-button">
                 Log in
               </button>
-              <button type="button" className="register-button">
+              <button
+                onClick={handleregister}
+                type="button"
+                className="register-button"
+              >
                 Register
               </button>
             </div>
