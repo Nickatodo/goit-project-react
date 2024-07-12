@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginThunk, logoutThunk } from '../operators/authOperator';
+import {
+  loginThunk,
+  logoutThunk,
+  updateTokenTunk,
+} from '../operators/authOperator';
 
 const initialState = {
   id: '',
@@ -25,6 +29,9 @@ const authSlice = createSlice({
     },
     setBloodType: (state, action) => {
       state.bloodType = action.payload;
+    },
+    setToken: (state, action) => {
+      state.token = action.payload.token;
     },
   },
   extraReducers: builder => {
@@ -62,8 +69,14 @@ const authSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     });
+    builder.addCase(updateTokenTunk.fulfilled, (state, action) => {
+      state.token = action.payload.token;
+    });
+    builder.addCase(updateTokenTunk.rejected, (state, action) => {
+      console.error('error token', action.payload);
+    });
   },
 });
 
-export const { logout, setBloodType } = authSlice.actions;
+export const { logout, setBloodType, setToken } = authSlice.actions;
 export const authReducer = authSlice.reducer;
