@@ -58,6 +58,7 @@ const UserDiary = () => {
   const productsLoaded = useSelector(
     state => state.products.products.length > 0
   );
+  console.log(productsLoaded);
   useEffect(() => {
     if (isLogged && !productsLoaded) {
       dispatch(diaryProductsThunk());
