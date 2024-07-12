@@ -26,7 +26,7 @@ export default function LoginPage() {
       if (response.meta.requestStatus === 'fulfilled') {
         navigate('/goit-project-react/user-calculator');
       } else {
-        console.error('Login failed');
+        alert(`Credenciales incorrectas`);
       }
     } catch (error) {
       console.error('An error occurred:', error);

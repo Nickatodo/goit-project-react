@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { authReducer } from '../slices/authSlice';
 import { registrationReducer } from '../slices/registrationSlice';
 import { caloriesReducer } from '../slices/caloriesSlice';
+import { diaryReducer } from '../slices/diarySlice';
+import { productReducer } from '../slices/productSlice';
 
 import {
   persistStore,
@@ -26,6 +28,8 @@ export const store = configureStore({
     auth: persistReducer(autPersistConfig, authReducer),
     registration: persistReducer(autPersistConfig, registrationReducer),
     caloriesCalculator: persistReducer(autPersistConfig, caloriesReducer),
+    diary: persistReducer(autPersistConfig, diaryReducer),
+    products: persistReducer(autPersistConfig, productReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

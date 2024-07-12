@@ -1,21 +1,27 @@
 import React from 'react';
 import HomeStyled from './HomeStyled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { caloriesThunk } from '../../redux/operators/caloriesOperator';
+import {
+  caloriesThunk,
+  caloriesLogedThunk,
+} from '../../redux/operators/caloriesOperator';
 import {
   selectCaloriesLoading,
   selectCaloriesError,
   selectCalories,
   selectProducts,
 } from '../../redux/selectors/caloriesSelector';
+import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import { reset } from '../../redux/slices/caloriesSlice';
 
 Modal.setAppElement('#root');
 
 const Home = () => {
   const dispatch = useDispatch();
+  const isLogged = useSelector(selectIsLogged);
+
   const [formData, setFormData] = useState({
     height: '',
     desiredWeight: '',
@@ -27,12 +33,14 @@ const Home = () => {
   const modalIsOpen = useSelector(
     state => state.caloriesCalculator.data !== null
   );
+  const [isOpen, setIsOpen] = useState(false);
+
   const loading = useSelector(selectCaloriesLoading);
   const error = useSelector(selectCaloriesError);
   const calories = useSelector(selectCalories);
   const products = useSelector(selectProducts);
 
-  const handleInputChage = e => {
+  const handleInputChange = e => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
@@ -49,13 +57,27 @@ const Home = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(formData);
-    await dispatch(caloriesThunk(formData));
+    const payload = { ...formData };
+    if (isLogged) {
+      await dispatch(caloriesLogedThunk(payload));
+    } else {
+      await dispatch(caloriesThunk(formData));
+    }
+    setIsOpen(true);
   };
 
   const closeModal = () => {
+    setIsOpen(false);
     dispatch(reset());
   };
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [modalIsOpen]);
 
   return (
     <HomeStyled>
@@ -68,7 +90,7 @@ const Home = () => {
             id="height"
             name="height"
             value={formData.height}
-            onChange={handleInputChage}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="height" className="form-label">
@@ -82,7 +104,7 @@ const Home = () => {
             id="desired-weight"
             name="desiredWeight"
             value={formData.desiredWeight}
-            onChange={handleInputChage}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="desired-weight" className="form-label">
@@ -96,7 +118,7 @@ const Home = () => {
             id="age"
             name="age"
             value={formData.age}
-            onChange={handleInputChage}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="age" className="form-label">
@@ -116,7 +138,7 @@ const Home = () => {
             id="current-weight"
             name="currentWeight"
             value={formData.currentWeight}
-            onChange={handleInputChage}
+            onChange={handleInputChange}
             required
           />
           <label htmlFor="current-weight" className="form-label">
@@ -174,7 +196,7 @@ const Home = () => {
       </form>
 
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Calories"
       >
