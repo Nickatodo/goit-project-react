@@ -31,14 +31,8 @@ const diarySlice = createSlice({
     });
     builder.addCase(diaryDateThunk.rejected, (state, action) => {
       state.loading = false;
-      if (action.payload && action.payload.message === 'No record was found') {
-        state.error = 'No se encontraron datos para la fecha seleccionada.';
-        state.tableData = [];
-      } else {
-        state.error = action.payload
-          ? action.payload.message
-          : 'Ha ocurrido un error.';
-      }
+      state.error = action.payload || 'Ha ocurrido un error';
+      state.tableData = [];
     });
     builder.addCase(addProductToDiaryThunk.pending, (state, action) => {
       state.loading = true;

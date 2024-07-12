@@ -19,7 +19,6 @@ const ProductSelector = ({
     <div>
       {loading && <p>Cargando productos...</p>}
       {error && <p>{error}</p>}
-
       <select
         value={selectedProduct}
         onChange={e => setSelectedProduct(e.target.value)}

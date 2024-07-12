@@ -4,6 +4,7 @@ import '../../css/styles.css';
 import 'react-datetime/css/react-datetime.css';
 import dayjs from 'dayjs';
 
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDate } from '../../redux/slices/diarySlice';
 import {
@@ -17,14 +18,28 @@ import {
   flexRender,
   getCoreRowModel,
 } from '@tanstack/react-table';
+import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import ProductSelector from './ProductsSelect';
 
 const UserDiary = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLogged = useSelector(selectIsLogged);
+  const bloodTypeLoged = useSelector(state => state.auth.bloodType);
+
   const selectedDate = useSelector(state => state.diary.selectedDate);
   const tableData = useSelector(state => state.diary.tableData);
   const loading = useSelector(state => state.diary.loading);
   const error = useSelector(state => state.diary.error);
+
+  useEffect(() => {
+    if (isLogged && !bloodTypeLoged) {
+      alert(
+        'Falta el dato del tipo de sangre. Por favor, actualiza tu perfil.'
+      );
+      navigate('/goit-project-react/user-calculator');
+    }
+  }, [isLogged, bloodTypeLoged, navigate]);
 
   const memoizedSelectedDate = useMemo(
     () => dayjs(selectedDate),
@@ -40,9 +55,14 @@ const UserDiary = () => {
     }
   }, [dispatch, memoizedSelectedDate]);
 
+  const productsLoaded = useSelector(
+    state => state.products.products.length > 0
+  );
   useEffect(() => {
-    dispatch(diaryProductsThunk());
-  }, [dispatch]);
+    if (isLogged && !productsLoaded) {
+      dispatch(diaryProductsThunk());
+    }
+  }, [dispatch, isLogged, productsLoaded]);
 
   const validDate = currentDate => {
     return currentDate.isSameOrBefore(new Date(), 'day');
@@ -50,7 +70,8 @@ const UserDiary = () => {
 
   const handleDateChange = date => {
     if (date && date.isValid()) {
-      dispatch(setDate(date.format('YYYY-MM-DD')));
+      const formattedDate = date.format('YYYY-MM-DD');
+      dispatch(setDate(formattedDate));
     }
   };
 

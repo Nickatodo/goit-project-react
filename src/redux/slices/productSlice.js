@@ -13,6 +13,7 @@ const productSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(diaryProductsThunk.pending, state => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(diaryProductsThunk.fulfilled, (state, action) => {
       state.loading = false;

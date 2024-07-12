@@ -72,15 +72,12 @@ export const removeProductToDiaryThunk = createAsyncThunk(
     const state = getState();
     const token = state.auth.token;
     setAuthToken(token);
-    console.log(id, title, date);
     try {
       await axios.delete('day', {
         data: { title, date },
       });
       return id;
     } catch (error) {
-      console.log(error.response.data);
-      console.log('Axios error:', error);
       return rejectWithValue(error.response.data);
     }
   }

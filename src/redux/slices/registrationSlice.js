@@ -15,6 +15,7 @@ const registrationSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(registerThunk.pending, (state, action) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(registerThunk.fulfilled, (state, action) => {
       state.loading = false;

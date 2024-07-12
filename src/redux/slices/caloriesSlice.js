@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { caloriesThunk } from '../operators/caloriesOperator';
+import {
+  caloriesThunk,
+  caloriesLogedThunk,
+} from '../operators/caloriesOperator';
 
 const initialState = {
   data: null,
@@ -20,12 +23,25 @@ const caloriesSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(caloriesThunk.pending, (state, action) => {
       state.loading = true;
+      state.error = null;
     });
     builder.addCase(caloriesThunk.fulfilled, (state, action) => {
       state.loading = false;
       state.data = action.payload;
     });
     builder.addCase(caloriesThunk.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
+    builder.addCase(caloriesLogedThunk.pending, (state, action) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(caloriesLogedThunk.fulfilled, (state, action) => {
+      state.loading = false;
+      state.data = action.payload;
+    });
+    builder.addCase(caloriesLogedThunk.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload;
     });
