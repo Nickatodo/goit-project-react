@@ -59,9 +59,7 @@ const Home = () => {
 
   return (
     <HomeStyled>
-      <h1 className="title">
-        Calcula tu ingesta diaria de calorías ahora mismo
-      </h1>
+      <h1 className="title">Calculate your daily calorie intake right now</h1>
 
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
@@ -73,7 +71,9 @@ const Home = () => {
             onChange={handleInputChage}
             required
           />
-          <label htmlFor="height">Altura*</label>
+          <label htmlFor="height" className="form-label">
+            Height*
+          </label>
         </div>
 
         <div className="form-group">
@@ -85,7 +85,9 @@ const Home = () => {
             onChange={handleInputChage}
             required
           />
-          <label htmlFor="desired-weight">Peso deseado*</label>
+          <label htmlFor="desired-weight" className="form-label">
+            Desired weight *
+          </label>
         </div>
 
         <div className="form-group">
@@ -97,7 +99,15 @@ const Home = () => {
             onChange={handleInputChage}
             required
           />
-          <label htmlFor="age">Edad*</label>
+          <label htmlFor="age" className="form-label">
+            Age *
+          </label>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="blood-group" className="form-label">
+            Blood type *
+          </label>
         </div>
 
         <div className="form-group">
@@ -109,11 +119,13 @@ const Home = () => {
             onChange={handleInputChage}
             required
           />
-          <label htmlFor="current-weight">Peso actual*</label>
+          <label htmlFor="current-weight" className="form-label">
+            Current weight *
+          </label>
         </div>
 
-        <div className="radio-group">
-          <label className="radio-label">
+        <div className="form-group form-group-radio">
+          <div className="radio-option">
             <input
               type="radio"
               id="option1"
@@ -122,10 +134,9 @@ const Home = () => {
               onChange={handleBloodChange}
               required
             />
-            1
-          </label>
-
-          <label className="radio-label">
+            <p className="radio-label">1</p>
+          </div>
+          <div className="radio-option">
             <input
               type="radio"
               id="option2"
@@ -133,10 +144,9 @@ const Home = () => {
               value="B"
               onChange={handleBloodChange}
             />
-            2
-          </label>
-
-          <label className="radio-label">
+            <p className="radio-label">2</p>
+          </div>
+          <div className="radio-option">
             <input
               type="radio"
               id="option3"
@@ -144,10 +154,9 @@ const Home = () => {
               value="AB"
               onChange={handleBloodChange}
             />
-            3
-          </label>
-
-          <label className="radio-label">
+            <p className="radio-label">3</p>
+          </div>
+          <div className="radio-option">
             <input
               type="radio"
               id="option4"
@@ -155,16 +164,12 @@ const Home = () => {
               value="O"
               onChange={handleBloodChange}
             />
-            4
-          </label>
-        </div>
-
-        <div className="form-group" style={{ width: '240px' }}>
-          <label htmlFor="blood-group">Grupo sanguíneo*</label>
+            <p className="radio-label">4</p>
+          </div>
         </div>
 
         <button type="submit" className="form-button_home">
-          Comienza a perder peso
+          Start losing weight
         </button>
       </form>
 
@@ -173,20 +178,23 @@ const Home = () => {
         onRequestClose={closeModal}
         contentLabel="Calories"
       >
-        <h2>Resultados</h2>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
           <p>Error : {error.message}</p>
         ) : (
           <div>
-            <p>Tu ingesta diaria recomendad de calorias es {calories} kcal</p>
-            <h3>Alimentos que no deberias comer</h3>
+            <h2>Your recommended daily calorie intake is</h2>
+            <h2>{calories} kcal</h2>
+            <h3>Foods you should not eat</h3>
             <ul>
-              {products.slice(0, 4).map(product => (
-                <li key={product._id}>{product.title}</li>
+              {products.slice(0, 4).map((product, index) => (
+                <li key={product._id}>
+                  {index + 1}. {product.title}
+                </li>
               ))}
             </ul>
+            <button className="form-button_home">Start losing weight</button>
             <button onClick={closeModal}>Cerrar</button>
           </div>
         )}
