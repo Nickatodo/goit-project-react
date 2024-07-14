@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Navigation from 'Navigation';
-import { store, persistedStore } from './redux/store/store';
-import { PersistGate } from 'redux-persist/integration/react';
+import App from './components/App';
+import { store } from './redux/store.js';
+import './index.css'; // Asegúrate de que este archivo existe o crea uno vacío
 import { Provider } from 'react-redux';
-import Modal from 'react-modal';
 
-Modal.setAppElement('#root');
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <PersistGate loading={null} persistor={persistedStore}>
-      <Navigation></Navigation>
-    </PersistGate>
-  </Provider>
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
