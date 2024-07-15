@@ -190,26 +190,27 @@ const Home = () => {
         </button>
       </form>
 
-      <Modal
+      <Modal 
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Calories"
       >
-        <h2>Resultados</h2>
+        <h2 className='Result'>Resultados</h2>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
           <p>Error : {error.message}</p>
         ) : (
           <div>
-            <p>Tu ingesta diaria recomendad de calorias es {calories} kcal</p>
-            <h3>Alimentos que no deberias comer</h3>
-            <ul>
+            <p className='Intake'>Tu ingesta diaria recomendad de calorias es </p>
+            <p className='Calories'>{calories} kcal</p>
+            <h3 className='Foods'>Alimentos que no deberias comer</h3>
+            <ul className='List__Foods'>
               {products.slice(0, 4).map(product => (
-                <li key={product._id}>{product.title}</li>
+                <li className='List__Products' key={product._id}>{product.title}</li>
               ))}
             </ul>
-            <button onClick={closeModal}>Cerrar</button>
+            <button className="Modal-button_close" onClick={closeModal}>Comienza a perder peso</button>
           </div>
         )}
       </Modal>

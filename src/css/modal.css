@@ -1,0 +1,221 @@
+.ReactModal__Content{
+    width: 672px;
+    height: 574px;
+    top: 138px;
+    left: 304px;
+    gap: 0px;
+    opacity: 0px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 22px 40px 0px rgba(0, 0, 0, 0.1);
+    margin-left: 300px;
+    border: 1px solid rgba(224, 224, 224, 1)
+}
+.Result {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    display: none;
+}
+.Intake {
+    width: 508px;
+    height: 70px;
+    top: 202px;
+    left: 386px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Verdana;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 36.4px;
+    text-align: center;
+    color: rgba(33, 33, 33, 1);
+    margin-left: 70px;
+    margin-top: 50px;
+}
+.Calories{
+    width: 330px;
+height: 62px;
+top: 292px;
+left: 475px;
+gap: 0px;
+opacity: 0px;
+font-family: Verdana;
+font-size: 48px;
+font-weight: 700;
+line-height: 58.34px;
+letter-spacing: 0.04em;
+text-align: center;
+font-size: 26px;
+line-height: 31.6px;
+letter-spacing: 0.04em;
+margin-top: 30px;
+margin-left: 170px;
+color: rgba(38, 64, 97, 1);
+}
+.Foods{
+    width: 330px;
+    height: 17px;
+    top: 398px;
+    margin-left: 175px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17.01px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    margin-top: 15px;
+    color: rgba(33, 33, 33, 1);
+
+}
+.List__Foods{
+    display:flexbox;
+    width: 222px;
+    height: 112px;
+    top: 435px;
+    left: 475px;
+    gap: 14px;
+    opacity: 0px;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.01px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: rgba(155, 159, 170, 1);
+    list-style: number;
+    margin-top: 20px;
+    margin-left: 195px;
+}
+.List__Products{
+    margin-top: 20px;
+}
+.Modal-button_close {
+    padding: 10px 20px;
+    margin-top: 16px;
+    background-color: rgba(252, 132, 45, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 210px;
+    height: 43px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    position: relative;
+    left: 50%;
+    left: 230px;
+    top: 80px;
+}
+@media screen and (max-width: 900px) and (min-width: 600px){
+    .ReactModal__Content{
+        width: 672px;
+        height: 572px;
+        top: 226px;
+        left: 48px;
+        gap: 0px;
+        border: 1px 0px 0px 0px;
+        opacity: 0px;
+        margin-left: 30px;
+        margin-top: 100px;
+    }
+    .Result {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        display: none;
+    }
+    .Intake {
+        width: 508px;
+height: 70px;
+top: 290px;
+left: 130px;
+gap: 0px;
+opacity: 0px;
+
+    }
+    .Calories{
+        width: 330px;
+    height: 62px;
+    top: 292px;
+    left: 475px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: Verdana;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58.34px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    font-size: 26px;
+    line-height: 31.6px;
+    letter-spacing: 0.04em;
+    margin-top: 30px;
+    margin-left: 170px;
+    color: rgba(38, 64, 97, 1);
+    }
+    .Foods{
+        width: 330px;
+        height: 17px;
+        top: 398px;
+        margin-left: 175px;
+        gap: 0px;
+        opacity: 0px;
+        font-family: Verdana;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 17.01px;
+        letter-spacing: 0.04em;
+        text-align: left;
+        margin-top: 15px;
+        color: rgba(33, 33, 33, 1);
+    
+    }
+    .List__Foods{
+        display:flexbox;
+        width: 222px;
+        height: 112px;
+        top: 435px;
+        left: 475px;
+        gap: 14px;
+        opacity: 0px;
+        font-family: Verdana;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17.01px;
+        letter-spacing: 0.04em;
+        text-align: left;
+        color: rgba(155, 159, 170, 1);
+        list-style: number;
+        margin-top: 20px;
+        margin-left: 195px;
+    }
+    .List__Products{
+        margin-top: 20px;
+    }
+    .Modal-button_close {
+        padding: 10px 20px;
+        margin-top: 16px;
+        background-color: rgba(252, 132, 45, 1);
+        color: rgba(255, 255, 255, 1);
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+        width: 210px;
+        height: 43px;
+        font-weight: 700;
+        font-size: 13px;
+        line-height: 1.2;
+        letter-spacing: 0.03em;
+        position: relative;
+        left: 50%;
+        left: 230px;
+        top: 80px;
+    } 
+}
+@media screen and (max-width: 600px){
+    
+}
