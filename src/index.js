@@ -8,6 +8,7 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root');
 
+// ULTIMO CAMBIO 12-07
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistedStore}>
