@@ -1,0 +1,73 @@
+.btn {
+  padding: 0;
+  width: calc(var(--width) * 1px);
+  height: calc(var(--height) * 1px);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: calc(var(--font-size) * 1px);
+  font-family: var(--font-family);
+  font-weight: var(--weight);
+  transition: 0.25s ease;
+  border: 2px solid var(--primary-color);
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn:focus-visible,
+.btn:focus-within {
+  box-shadow: 0px 4px 10px 0px var(--shadow-color);
+  border: 2px solid var(--primary-color);
+  outline: none;
+}
+
+.btn-secondary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary > span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-secondary::after {
+  content: "";
+  position: absolute;
+  background: var(--primary-color);
+  width: calc(var(--width) * 1px);
+  height: calc(var(--width) * 1px);
+  transition: 0.25s ease;
+  transform: rotate(-60deg);
+  top: -350%;
+  left: -150%;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary:focus-visible,
+.btn-secondary:focus-within {
+  color: var(--primary-color);
+}
+
+.btn-secondary:hover::after,
+.btn-secondary:focus::after,
+.btn-secondary:active::after,
+.btn-secondary:focus-visible::after,
+.btn-secondary:focus-within::after {
+  left: 150%;
+}
+
+.btn-icon {
+  padding: 0;
+  border-radius: 50%;
+  width: calc(var(--width) * 1px);
+  height: calc(var(--width) * 1px);
+}
