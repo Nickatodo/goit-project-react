@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { setBloodType } from '../slices/authSlice';
+import { setBloodType, setToken } from '../slices/authSlice';
 
 axios.defaults.baseURL = 'https://slim-mom-bd9397140525.herokuapp.com/api/';
 
@@ -34,6 +34,14 @@ export const caloriesLogedThunk = createAsyncThunk(
     try {
       const response = await axios.post(`daily-rate/${id}`, formData);
       dispatch(setBloodType(response.data.bloodType));
+
+      //new token
+      if (response.data.token) {
+        const newToken = response.data.token;
+        dispatch(setToken({ token: newToken }));
+        setAuthToken(newToken);
+      }
+
       return response.data;
     } catch (error) {
       return rejectedWithValue(error.response.data);

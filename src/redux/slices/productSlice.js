@@ -10,6 +10,13 @@ const initialState = {
 const productSlice = createSlice({
   initialState,
   name: 'products',
+  reducers: {
+    reset: state => {
+      state.products = [];
+      state.loading = false;
+      state.error = null;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(diaryProductsThunk.pending, state => {
       state.loading = true;
@@ -21,11 +28,10 @@ const productSlice = createSlice({
     });
     builder.addCase(diaryProductsThunk.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload
-        ? action.payload.message
-        : 'Ha ocurrido un error.';
+      state.error = action.payload;
     });
   },
 });
 
+export const { reset } = productSlice.actions;
 export const productReducer = productSlice.reducer;

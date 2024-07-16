@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { diaryProductsThunk } from '../../redux/operators/productOperator';
 
 const ProductSelector = ({
   selectedProduct,
@@ -8,9 +9,16 @@ const ProductSelector = ({
   setWeight,
   handleAddProduct,
 }) => {
+  const dispatch = useDispatch();
   const products = useSelector(state => state.products.products);
   const loading = useSelector(state => state.products.loading);
   const error = useSelector(state => state.products.error);
+
+  useEffect(() => {
+    if (products.length === 0) {
+      dispatch(diaryProductsThunk());
+    }
+  }, [dispatch, products.length]);
 
   const selectedProductCalories =
     products.find(product => product._id === selectedProduct)?.calories || 0;

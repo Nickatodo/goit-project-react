@@ -12,7 +12,7 @@ import {
   addProductToDiaryThunk,
   removeProductToDiaryThunk,
 } from '../../redux/operators/diaryOperator';
-import { diaryProductsThunk } from '../../redux/operators/productOperator';
+//import { diaryProductsThunk } from '../../redux/operators/productOperator';
 import {
   useReactTable,
   flexRender,
@@ -55,14 +55,16 @@ const UserDiary = () => {
     }
   }, [dispatch, memoizedSelectedDate]);
 
+  /*
   const productsLoaded = useSelector(
     state => state.products.products.length > 0
   );
+  console.log(productsLoaded);
   useEffect(() => {
     if (isLogged && !productsLoaded) {
       dispatch(diaryProductsThunk());
     }
-  }, [dispatch, isLogged, productsLoaded]);
+  }, [dispatch, isLogged, productsLoaded]);*/
 
   const validDate = currentDate => {
     return currentDate.isSameOrBefore(new Date(), 'day');
