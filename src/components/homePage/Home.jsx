@@ -15,7 +15,8 @@ import {
 } from '../../redux/selectors/caloriesSelector';
 import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import { reset } from '../../redux/slices/caloriesSlice';
-
+import IconcloseModal from '../../img/svg/x.svg';
+import backModal from '../../img/svg/back.svg';
 Modal.setAppElement('#root');
 
 const Home = () => {
@@ -202,10 +203,20 @@ const Home = () => {
           <p>Error : {error.message}</p>
         ) : (
           <div>
-            <p className='Intake'>Tu ingesta diaria recomendad de calorias es </p>
-            <p className='Calories'>{calories} kcal</p>
-            <h3 className='Foods'>Alimentos que no deberias comer</h3>
-            <ul className='List__Foods'>
+            <div className='modal__back-movile'>
+            <svg  width="20" height="20" fill='black'>
+            <use xlinkHref={`${backModal}#back-close-modal`} />
+            </svg>
+            </div>
+            <button data-modal-close class="modal__close_button" onClick={closeModal} type="button">
+            <svg  width="20" height="20" fill='black'>
+            <use xlinkHref={`${IconcloseModal}#icon-close-modal`} />
+            </svg>
+            </button>
+            <p className='modal__Intake'>Tu ingesta diaria recomendad de calorias es </p>
+            <p className='modal__calories'>{calories}kcal</p>
+            <h3 className='modal__foods'>Alimentos que no deberias comer</h3>
+            <ul className='modal__list_foods'>
               {products.slice(0, 4).map(product => (
                 <li className='List__Products' key={product._id}>{product.title}</li>
               ))}
