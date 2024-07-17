@@ -9,7 +9,7 @@
   overflow-y: auto;
 
   background-image: url('../../img/hojas.png'), url('../../img/fresa.png'),
-    url('../../img/banana.png'), url('../../img/formaFondo.png');
+    url('../../img/banana1.png'), url('../../img/formaFondo.png');
   background-size: 746px 846px, 286px 279px, 773px 552px, 602px 816px;
   background-position: calc(100% - 195px) calc(-26px),
     calc(100% - 36px) calc(506px), calc(100% + 275px) calc(-102px),

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import hojasBackground from '../../img/hojas.png';
 import fresasBackground from '../../img/fresa.png';
-import bananaBackground from '../../img/banana.png';
+import bananaBackground from '../../img/banana1.png';
 import vectorBackground from '../../img/formaFondo.png';
 
 const HomeStyled = styled.div`
