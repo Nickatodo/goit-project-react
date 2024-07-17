@@ -15,7 +15,7 @@ import {
 } from '../../redux/selectors/caloriesSelector';
 import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import { reset } from '../../redux/slices/caloriesSlice';
-
+import '../../css/modal.css'
 import IconcloseModal from '../../img/svg/x.svg';
 import Button from '../Button/Button';
 import Sidebar from '../sideBar/SideBar'; // Importa el nuevo Sidebar
@@ -219,17 +219,17 @@ const Home = () => {
             isOpen={isOpen}
             onRequestClose={closeModal}
             contentLabel="Calories"
-            className={'modal'}
+            
           >
             {loading ? (
               <p>Loading...</p>
             ) : error ? (
               <p>Error : {error.message}</p>
             ) : (
-              <div className="modal__container">
+              <div className="modal__container" >
                 <button
                   data-modal-close
-                  class="modal__close_button"
+                  className="modal__close_button"
                   onClick={closeModal}
                   type="button"
                 >
@@ -241,7 +241,7 @@ const Home = () => {
                   Your recommended daily calorie intake is{' '}
                 </p>
                 <div className="modal_calories_container">
-                  <p className="modal__calories">{calories} </p>
+                  <p className="modal__calories">{Math.ceil(parseFloat(calories))} </p>
                   <p className="modal__calories-units">kcal </p>
                 </div>
                 <h3 className="modal__foods">Foods you should not eat</h3>
@@ -252,7 +252,7 @@ const Home = () => {
                     </li>
                   ))}
                 </ul>
-                <Button
+                <Button className={"modal__button-start"}
                   text={'Start losing weight'}
                   fontFamily={'Verdana'}
                   fontSize={14}
