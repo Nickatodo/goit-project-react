@@ -220,7 +220,6 @@ const Home = () => {
             isOpen={isOpen}
             onRequestClose={closeModal}
             contentLabel="Calories"
-            className="modal"
           >
             {loading ? (
               <p>Loading...</p>
@@ -248,11 +247,12 @@ const Home = () => {
                 <ul className="modal__list_foods">
                   {products.slice(0, 4).map((product, index) => (
                     <li className="List__Products" key={product._id}>
-                      {product.title}
+                      {index + 1} . {product.title}
                     </li>
                   ))}
                 </ul>
                 <Button
+                  className={'modal__button-start'}
                   text={'Start losing weight'}
                   fontFamily={'Verdana'}
                   fontSize={14}
