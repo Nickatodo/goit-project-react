@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/goit-project-react/static/css/main.96405a36.css",
-    "main.js": "/goit-project-react/static/js/main.6553ef77.js",
+    "main.css": "/goit-project-react/static/css/main.a358735f.css",
+    "main.js": "/goit-project-react/static/js/main.cc69f1e9.js",
     "static/media/fresa.png": "/goit-project-react/static/media/fresa.9a2f0fd83e96a97da731.png",
     "static/media/banana1.png": "/goit-project-react/static/media/banana1.c05dd312ed7aeb67d508.png",
     "static/media/hojas.png": "/goit-project-react/static/media/hojas.38736a075fafe320f55c.png",
     "static/media/symbol-defs.svg": "/goit-project-react/static/media/symbol-defs.ecb18db3495b348dc6c5f9f290fb656d.svg",
     "index.html": "/goit-project-react/index.html",
     "static/media/x.svg": "/goit-project-react/static/media/x.278bbaf6668369255ce1e2f20403a5fa.svg",
-    "main.96405a36.css.map": "/goit-project-react/static/css/main.96405a36.css.map",
-    "main.6553ef77.js.map": "/goit-project-react/static/js/main.6553ef77.js.map"
+    "main.a358735f.css.map": "/goit-project-react/static/css/main.a358735f.css.map",
+    "main.cc69f1e9.js.map": "/goit-project-react/static/js/main.cc69f1e9.js.map"
   },
   "entrypoints": [
-    "static/css/main.96405a36.css",
-    "static/js/main.6553ef77.js"
+    "static/css/main.a358735f.css",
+    "static/js/main.cc69f1e9.js"
   ]
 }
