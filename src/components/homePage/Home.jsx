@@ -1,6 +1,5 @@
 import React from 'react';
 import HomeStyled from './HomeStyled';
-import '../../css/styles.css';
 import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
