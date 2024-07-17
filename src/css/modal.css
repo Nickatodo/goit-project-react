@@ -10,12 +10,32 @@
     margin-left: 300px;
     border: 1px solid rgba(224, 224, 224, 1)
 }
+
+.modal__container{
+    display: inline-block;
+    position: absolute;
+    width: 672px;
+    height: 574px;
+}
+
+.modal__close_button{
+    fill:black;
+    left: 645px;
+    opacity: 1;
+    position: relative;
+    border: none;
+    background-color: white;
+    Width:20px;
+    Height:20px;    
+}
+
 .Result {
     font-size: 24px;
     color: #333;
     margin-bottom: 20px;
     display: none;
 }
+
 .modal__Intake {
     width: 508px;
     height: 70px;
@@ -31,6 +51,25 @@
     color: rgba(33, 33, 33, 1);
     margin-left: 70px;
     margin-top: 50px;
+    align-content: center;
+    align-items: center;
+    color: rgba(33, 33, 33, 1);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.modal_calories_container{
+    width: 330px;
+    height: 62px;
+    top: 292px;
+    left: 475px;
+    gap: 0px;
+    opacity: 0px;
+    display: flex;
+    align-items: flex-end;
+    column-gap: 20px;
+    align-items:baseline;
 }
 
 .modal__calories{
@@ -46,19 +85,28 @@
     line-height: 58.34px;
     letter-spacing: 0.04em;
     text-align: center;
-    font-size: 26px;
-    line-height: 31.6px;
     letter-spacing: 0.04em;
     margin-top: 30px;
     margin-left: 170px;
     color: rgba(38, 64, 97, 1);
-   
+    display: flex;
+    justify-content: center;
+}
+
+.modal__calories-units{
+    font-family: Verdana;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 31.6px;
+    letter-spacing: 0.04em;
+    color: rgba(38, 64, 97, 1);
+    display: flex;
+    justify-content: center;
 }
 
 .modal__foods{
     width: 330px;
     height: 17px;
-    top: 398px;
     margin-left: 175px;
     gap: 0px;
     opacity: 0px;
@@ -68,16 +116,17 @@
     line-height: 17.01px;
     letter-spacing: 0.04em;
     text-align: left;
-    margin-top: 15px;
+    margin-top: 50px;
     color: rgba(33, 33, 33, 1);
-
+    display: flex;
 }
+
 .modal__list_foods{
     display:flexbox;
     width: 222px;
     height: 112px;
-    top: 435px;
-    left: 475px;
+    top: 50px;
+    left: 40px;
     gap: 14px;
     opacity: 0px;
     font-family: Verdana;
@@ -91,9 +140,11 @@
     margin-top: 20px;
     margin-left: 195px;
 }
+
 .List__Products{
     margin-top: 20px;
 }
+
 .Modal-button_close {
     padding: 10px 20px;
     margin-top: 16px;
@@ -105,36 +156,22 @@
     width: 210px;
     height: 43px;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.2;
     letter-spacing: 0.03em;
     position: relative;
     left: 220px;
     top: 80px;
+    justify-content: center;
+}
 
-}
-.modal__back-movile{
-    display: none;
-}
-.modal__close_button{
-    fill:black;
-    top: 12px;
-    right: 12px;
-    opacity: 1;
-    position: absolute;
-    border: none;
-    background-color: white;
-    
-}
 @media screen and (max-width: 900px) and (min-width: 600px){
     .ReactModal__Content{
         margin-left: 30px;
         margin-top: 100px;
     }
-   .modal__back-movile{
-    display: none;
-   }
 }
+
 @media screen and (max-width: 600px){
     .ReactModal__Content{
         width: 420px;
@@ -143,8 +180,20 @@
         border: none;
         box-shadow: none;
         border-radius: none;
-        
+        overflow: none;
     }
+  
+    .modal__close_button{
+        fill:black;
+        left: 395px;
+        opacity: 1;
+        position: relative;
+        border: none;
+        background-color: white;
+        Width:20px;
+        Height:20px;
+    }
+  
     .modal__Intake{
         margin-left: 0px;
         width: 280px;
@@ -153,26 +202,15 @@
         left: 20px;
         gap: 0px;
         opacity: 0px;
+        margin-left: 0px;
         font-family: Verdana;
         font-size: 18px;
         font-weight: 700;
         line-height: 25.2px;
         text-align: left;
         position: relative;
-}
-
-    }
-    .modal__back-movile{
-        background: rgba(239, 241, 243, 1);
-        
-        width: 420px;
-        height: 40px;
-        top: 20px;
-        gap: 0px;
-        opacity: 0px;
-        position: relative;
-
-    }
+  }
+  
     .modal__calories{
         width: 280px;
         height: 62px;
@@ -199,6 +237,7 @@
         opacity: 0px;
         position: relative;
     }
+  
     .modal__list_foods{
         margin-left: 0px;
         width: 280px;
@@ -216,9 +255,8 @@
         position: relative;
         
     }
-    .modal__close_button {
-        display: none;
-    }
+    
+    
     .Modal-button_close {
         width: 210px;
         height: 43px;
@@ -228,20 +266,19 @@
         background: rgba(252, 132, 45, 1);
         padding: 10px 20px;
         margin-top: 16px;
-        background-color: rgba(252, 132, 45, 1);
         color: rgba(255, 255, 255, 1);
         border: none;
-        cursor: pointer;
         border-radius: 20px;
         font-weight: 700;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 1.2;
-        letter-spacing: 0.03em;
-        align-content: center;
+        letter-spacing: 0.04em;
         align-items: center;
         top: 100px;
         display: flex;
+        font-family: Verdana;
+        line-height: 17.01px;
+        text-align: center;
+        left: 100px;
     }
-   
-    
-    
+}
