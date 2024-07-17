@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <SidebarStyled>
       <div className="summary">
-        <div className="summary-header">
+        <div className="summary-title">
           Summary for {memoizedSelectedDate.format('DD-MM-YYYY')}
         </div>
         <div className="summary-content">
@@ -33,7 +33,9 @@ const Sidebar = () => {
             <div className="summary-value">000 kcal</div>
           </div>
         </div>
-        <div className="summary-header">Food not recommended</div>
+      </div>
+      <div className="summary">
+        <div className="summary-title">Food not recommended</div>
         <div className="summary-content">
           <div className="summary-row">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat

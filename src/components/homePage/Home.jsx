@@ -19,7 +19,7 @@ import { reset } from '../../redux/slices/caloriesSlice';
 
 import IconcloseModal from '../../img/svg/x.svg';
 import Button from '../Button/Button';
-import Sidebar from '../sideBar/SideBar'; // Importa el nuevo Sidebar
+import Sidebar from '../sideBar/SideBar';
 
 Modal.setAppElement('#root');
 
@@ -240,7 +240,9 @@ const Home = () => {
                   Your recommended daily calorie intake is{' '}
                 </p>
                 <div className="modal_calories_container">
-                  <p className="modal__calories">{calories} </p>
+                  <p className="modal__calories">
+                    {Math.ceil(parseFloat(calories))}{' '}
+                  </p>
                   <p className="modal__calories-units">kcal </p>
                 </div>
                 <h3 className="modal__foods">Foods you should not eat</h3>
