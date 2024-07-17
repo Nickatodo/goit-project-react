@@ -1,5 +1,6 @@
 import React from 'react';
 import HomeStyled from './HomeStyled';
+import '../../css/styles.css';
 import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +16,9 @@ import {
 } from '../../redux/selectors/caloriesSelector';
 import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import { reset } from '../../redux/slices/caloriesSlice';
+
+import IconcloseModal from '../../img/svg/x.svg';
+import backModal from '../../img/svg/back.svg';
 import Button from '../Button/Button';
 
 Modal.setAppElement('#root');
@@ -213,24 +217,43 @@ const Home = () => {
         onRequestClose={closeModal}
         contentLabel="Calories"
       >
+        <h2 className="Result">Resultados</h2>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
           <p>Error : {error.message}</p>
         ) : (
           <div>
-            <h2>Your recommended daily calorie intake is</h2>
-            <h2>{calories} kcal</h2>
-            <h3>Foods you should not eat</h3>
-            <ul>
+            <div className="modal__back-movile">
+              <svg width="20" height="20" fill="black">
+                <use xlinkHref={`${backModal}#icon-Vector-9`} />
+              </svg>
+            </div>
+            <button
+              data-modal-close
+              className="modal__close_button"
+              onClick={closeModal}
+              type="button"
+            >
+              <svg width="20" height="20" fill="black">
+                <use xlinkHref={`${IconcloseModal}#icon-x`} />
+              </svg>
+            </button>
+            <p className="modal__Intake">
+              Your recommended daily calorie intake is{' '}
+            </p>
+            <p className="modal__calories">{calories} kcal</p>
+            <h3 className="modal__foods">Foods you should not eat</h3>
+            <ul className="modal__list_foods">
               {products.slice(0, 4).map((product, index) => (
                 <li key={product._id}>
                   {index + 1}. {product.title}
                 </li>
               ))}
             </ul>
-            <button className="form-button_home">Start losing weight</button>
-            <button onClick={closeModal}>Cerrar</button>
+            <button className="Modal-button_close" onClick={closeModal}>
+              Comienza a perder peso
+            </button>
           </div>
         )}
       </Modal>
