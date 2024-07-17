@@ -64,4 +64,6 @@ const diarySlice = createSlice({
 });
 
 export const { setDate } = diarySlice.actions;
+
+export const selectedSelectedDate = state => state.diary.selectedDate;
 export const diaryReducer = diarySlice.reducer;

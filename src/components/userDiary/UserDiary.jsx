@@ -12,7 +12,6 @@ import {
   addProductToDiaryThunk,
   removeProductToDiaryThunk,
 } from '../../redux/operators/diaryOperator';
-//import { diaryProductsThunk } from '../../redux/operators/productOperator';
 import {
   useReactTable,
   flexRender,
@@ -20,6 +19,7 @@ import {
 } from '@tanstack/react-table';
 import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import ProductSelector from './ProductsSelect';
+import Sidebar from '../sideBar/SideBar'; // Importa el nuevo Sidebar
 
 const UserDiary = () => {
   const dispatch = useDispatch();
@@ -54,17 +54,6 @@ const UserDiary = () => {
       dispatch(diaryDateThunk(memoizedSelectedDate.format('YYYY-MM-DD')));
     }
   }, [dispatch, memoizedSelectedDate]);
-
-  /*
-  const productsLoaded = useSelector(
-    state => state.products.products.length > 0
-  );
-  console.log(productsLoaded);
-  useEffect(() => {
-    if (isLogged && !productsLoaded) {
-      dispatch(diaryProductsThunk());
-    }
-  }, [dispatch, isLogged, productsLoaded]);*/
 
   const validDate = currentDate => {
     return currentDate.isSameOrBefore(new Date(), 'day');
@@ -228,6 +217,7 @@ const UserDiary = () => {
           ))}
         </tbody>
       </table>
+      {isLogged && <Sidebar />}
     </div>
   );
 };
