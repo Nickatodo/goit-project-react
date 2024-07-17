@@ -199,31 +199,6 @@ const HomeStyled = styled.div`
       color: #9b9faa;
     }
   }
-
-  .modal__container {
-    /* Aquí van los estilos específicos para tu modal */
-  }
-  .modal__close_button {
-    /* Aquí van los estilos específicos para el botón de cerrar del modal */
-  }
-  .modal__Intake {
-    /* Aquí van los estilos específicos para el texto de calorías del modal */
-  }
-  .modal_calories_container {
-    /* Aquí van los estilos específicos para el contenedor de calorías del modal */
-  }
-  .modal__calories {
-    /* Aquí van los estilos específicos para el texto de calorías del modal */
-  }
-  .modal__calories-units {
-    /* Aquí van los estilos específicos para las unidades de calorías del modal */
-  }
-  .modal__foods {
-    /* Aquí van los estilos específicos para el título de alimentos del modal */
-  }
-  .modal__list_foods {
-    /* Aquí van los estilos específicos para la lista de alimentos del modal */
-  }
 `;
 
 export default HomeStyled;

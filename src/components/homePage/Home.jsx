@@ -2,6 +2,7 @@ import React from 'react';
 import HomeStyled from './HomeStyled';
 import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import './modal.css';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   caloriesThunk,
@@ -219,7 +220,7 @@ const Home = () => {
             isOpen={isOpen}
             onRequestClose={closeModal}
             contentLabel="Calories"
-            className={'modal'}
+            className="modal"
           >
             {loading ? (
               <p>Loading...</p>
@@ -228,10 +229,9 @@ const Home = () => {
             ) : (
               <div className="modal__container">
                 <button
-                  data-modal-close
-                  class="modal__close_button"
-                  onClick={closeModal}
+                  className="modal__close_button"
                   type="button"
+                  onClick={closeModal}
                 >
                   <svg width="20" height="20">
                     <use xlinkHref={`${IconcloseModal}#icon-x`} />
@@ -248,7 +248,7 @@ const Home = () => {
                 <ul className="modal__list_foods">
                   {products.slice(0, 4).map((product, index) => (
                     <li className="List__Products" key={product._id}>
-                      {index + 1}. {product.title}
+                      {product.title}
                     </li>
                   ))}
                 </ul>
