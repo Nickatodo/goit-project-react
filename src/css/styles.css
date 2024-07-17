@@ -11,6 +11,7 @@
 @import url('./login.css');
 @import url('./register.css');
 @import url('./calculator.css');
+@import url('./modal.css');
 
 :root {
   font-family: 'Jost', sans-serif, Inter, Avenir, Helvetica, Arial, sans-serif;

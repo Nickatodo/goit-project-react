@@ -22,17 +22,8 @@ import logo from '../../img/logo.png';
 import symbolDefs from '../../img/svg/symbol-defs.svg';
 
 const Header = () => {
-  /*
-  const { email, isLogged } = useSelector(state => state.auth);
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(logoutThunk());
-  };*/
-
   const dispatch = useDispatch();
   const isLogged = useSelector(selectIsLogged);
-  //const email = useSelector(selectEmail);
   const name = useSelector(selectName);
 
   const handleLogout = () => {
