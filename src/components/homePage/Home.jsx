@@ -221,7 +221,6 @@ const Home = () => {
         ) : error ? (
           <p>Error : {error.message}</p>
         ) : (
-<<<<<<< HEAD
           <div>
             <button
               data-modal-close
@@ -232,26 +231,25 @@ const Home = () => {
               <svg width="20" height="20" fill="black">
                 <use xlinkHref={`${IconcloseModal}#icon-x`} />
               </svg>
-=======
-          <div className='modal__container'>
-            <button data-modal-close class="modal__close_button" onClick={closeModal} type="button">
-            <svg  width="20" height="20" >
-            <use  xlinkHref={`${IconcloseModal}#icon-x`} />
-            </svg>
->>>>>>> c8f6823b3dc2db45cc651941f104b0f6778977e9
             </button>
-            <p className='modal__Intake'>Your recommended daily calorie intake is </p>
-            <div className='modal_calories_container'>
-            <p className='modal__calories'>{calories} </p>
-            <p className='modal__calories-units'>kcal </p>
+            <p className="modal__Intake">
+              Your recommended daily calorie intake is{' '}
+            </p>
+            <div className="modal_calories_container">
+              <p className="modal__calories">{calories} </p>
+              <p className="modal__calories-units">kcal </p>
             </div>
-            <h3 className='modal__foods'>Foods you should not eat</h3>
-            <ul className='modal__list_foods'>
-              {products.slice(0, 4).map(product => (
-                <li className='List__Products' key={product._id}>{index + 1}. {product.title}</li>
+            <h3 className="modal__foods">Foods you should not eat</h3>
+            <ul className="modal__list_foods">
+              {products.slice(0, 4).map((product, index) => (
+                <li className="List__Products" key={product._id}>
+                  {index + 1}. {product.title}
+                </li>
               ))}
             </ul>
-            <button className="Modal-button_close" onClick={closeModal}>Start losing weight</button>
+            <button className="Modal-button_close" onClick={closeModal}>
+              Start losing weight
+            </button>
           </div>
         )}
       </Modal>
