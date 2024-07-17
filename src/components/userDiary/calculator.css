@@ -1,0 +1,64 @@
+.diary-form {
+  max-width: 400px;
+  margin: 0 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.diary-form-group {
+  position: relative;
+}
+
+.form-label {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-size: 14px;
+  color: #9b9faa;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.form-input {
+  width: 100%;
+  padding: 7px 0;
+  row-gap: 20px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: transparent;
+  outline: none;
+  font-size: 16px;
+  cursor: text;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label,
+.form-input:valid + .form-label {
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+}
+
+.diary-button {
+  font-size: 16px;
+  background-color: #fc842d;
+  color: #ffffff;
+  border: transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  padding: 10px 15px;
+}
+
+.diary-button:hover {
+  box-shadow: 0px 4px 10px 0px rgba(252, 132, 45, 0.5);
+}

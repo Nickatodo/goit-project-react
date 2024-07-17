@@ -1,63 +1,122 @@
 import styled from 'styled-components';
 import hojasBackground from '../../img/hojas.png';
-import fresasBackground from '../../img/fresas.png';
-import bananaBackground from '../../img/Banana.png';
-import vectorBackground from '../../img/Vector fondo.png';
+import fresasBackground from '../../img/fresa.png';
+import bananaBackground from '../../img/banana.png';
+import vectorBackground from '../../img/formaFondo.png';
 
 const HomeStyled = styled.div`
+  position: relative;
+  top: 0;
   font-family: 'Jost', sans-serif;
+  padding-top: 293px;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 293px);
+  overflow-y: auto;
+
   background-image: url(${hojasBackground}), url(${fresasBackground}),
     url(${bananaBackground}), url(${vectorBackground});
-  background-size: 750px 850px, 280px 270px, 500px 450px, 700px 816px;
-  background-position: center top, bottom right, right -15%, right bottom;
+  background-size: 746px 846px, 286px 279px, 773px 552px, 602px 816px;
+  background-position: calc(100% - 195px) calc(-26px),
+    calc(100% - 36px) calc(506px), calc(100% + 275px) calc(-102px),
+    right calc(34px);
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
 
-  h1 {
+  @media screen and (max-width: 768px) {
+    background-size: 740px 842px, 291px 284px, 773px 552px, 553px 750px;
+    background-position: calc(100% - 12px) calc(-97px),
+      calc(100% + 26px) calc(461px), calc(100% + 249px) calc(593px),
+      calc(100% + 32px) calc(461px);
+    padding-top: 180px;
+    height: calc(100vh - 180px);
+  }
+
+  @media screen and (max-width: 320px) {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 112px;
+  }
+
+  .title {
     max-width: 608px;
-    height: 85px;
-    padding: 70px 0 50px 15px;
+    margin: 0 16px 68px 16px;
     font-weight: 700;
     font-size: 34px;
     line-height: 1.4;
 
     @media screen and (max-width: 768px) {
+      max-width: 704px;
+      margin: 0 32px 68px 32px;
+    }
+
+    @media screen and (max-width: 320px) {
+      max-width: 280px;
+      min-width: 240px;
+      margin: 32px 20px 34px 20px;
       font-size: 18px;
-      padding: 30px 20px 0 20px;
-      text-align: center;
     }
   }
 
-  form {
+  .form {
     max-width: 608px;
-    max-height: 343px;
+    display: flex;
+    margin: 0 16px;
+    flex-direction: column;
+
+    @media screen and (max-width: 768px) {
+      margin: 0 32px;
+      max-width: 704px;
+    }
+
+    @media screen and (max-width: 320px) {
+      margin: 0 20px;
+      width: 240px;
+    }
+  }
+
+  .form-inputs {
+    width: 100%;
     font-weight: 700;
     font-size: 14px;
     line-height: 1.2;
     letter-spacing: 0.04em;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 0 0 0 15px;
+    gap: 40px 30px;
 
     @media screen and (max-width: 768px) {
-      max-width: 240px;
-      max-height: 269px;
-      padding: 0;
+    }
+
+    @media screen and (max-width: 320px) {
+    }
+  }
+
+  .form-btn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 60px;
+
+    @media screen and (max-width: 768px) {
+      justify-content: start;
+    }
+
+    @media screen and (max-width: 320px) {
+      justify-content: center;
+      margin-top: 40px;
     }
   }
 
   .form-group {
     width: 240px;
     position: relative;
-    margin-bottom: 20px;
 
-    input[type='number'],
-    select {
+    input[type='number'] {
+      width: 100%;
       padding: 7px 0px;
       border: none;
-      border-bottom: 1px solid rgba(224, 224, 224, 1);
+      border-bottom: 1px solid #e0e0e0;
       font-size: 16px;
       outline: none;
       background-color: transparent;
@@ -68,7 +127,7 @@ const HomeStyled = styled.div`
       top: 0;
       left: 5px;
       font-size: 14px;
-      color: rgba(155, 159, 170, 1);
+      color: #9b9faa;
       pointer-events: none;
       transition: 0.2s;
     }
@@ -80,12 +139,12 @@ const HomeStyled = styled.div`
       top: -20px;
       left: 0;
       font-size: 12px;
-      color: rgba(155, 159, 170, 1);
+      color: #9b9faa;
     }
 
     &-radio {
       top: -40px;
-      border-top: 1px solid rgba(224, 224, 224, 1);
+      border-top: 1px solid #e0e0e0;
       padding: 8px 0;
       display: flex;
       gap: 28px;
@@ -94,7 +153,7 @@ const HomeStyled = styled.div`
 
   .radio-option {
     width: 240px;
-    color: rgba(155, 159, 170, 1);
+    color: #9b9faa;
     font-size: 14px;
     display: flex;
     align-items: center;
@@ -105,69 +164,23 @@ const HomeStyled = styled.div`
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      border: 1px solid rgba(155, 159, 170, 1);
+      border: 1px solid #9b9faa;
       outline: none;
       transition: border-color 0.3s ease-in-out;
       margin: 0;
 
       &:checked {
-        background-color: rgba(252, 132, 45, 1);
+        background-color: #fc842d;
 
         & + .radio-label {
-          color: rgba(252, 132, 45, 1); /* Color por defecto del número */
+          color: #fc842d;
         }
       }
     }
 
     .radio-label {
-      color: rgba(155, 159, 170, 1); /* Color por defecto del número */
+      color: #9b9faa;
     }
-  }
-
-  button {
-    padding: 10px 20px;
-    margin-top: 16px;
-    background-color: rgba(252, 132, 45, 1);
-    color: rgba(255, 255, 255, 1);
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-    width: 210px;
-    height: 43px;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1.2;
-    letter-spacing: 0.03em;
-    position: relative;
-    left: 50%;
-
-    &:hover {
-      box-shadow: 0px 4px 10px 0px rgba(252, 132, 45, 0.5);
-    }
-
-    @media screen and (max-width: 600px) {
-      margin: 0 0 16px 0;
-      left: auto;
-      width: 100%;
-    }
-  }
-
-  @media screen and (max-width: 900px) and (min-width: 600px) {
-    height: 1024px;
-    background-image: url(${hojasBackground}), url(${fresasBackground}),
-      url(${bananaBackground}), url(${vectorBackground});
-    background-size: 60% auto, 250px 250px, 450px 450px, 500px 616px;
-    background-position: left bottom, 90% 75%, right 115%, right 125%;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  }
-
-  @media screen and (max-width: 600px) {
-    height: auto;
-    background-image: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
 `;
 

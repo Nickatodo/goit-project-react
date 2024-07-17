@@ -1,6 +1,6 @@
 import React from 'react';
 import Datetime from 'react-datetime';
-import 'react-datetime/css/react-datetime.css';
+import '../../../node_modules/react-datetime/css/react-datetime.css';
 import dayjs from 'dayjs';
 
 const DatePicker = ({ selectedDate, onDateChange, validDate }) => {
