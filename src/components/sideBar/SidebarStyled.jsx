@@ -2,97 +2,105 @@
 import styled from 'styled-components';
 
 const SidebarStyled = styled.div`
-  background-color: #f0f1f3;
-  background-size: cover;
-  background-position: center;
-  width: 600px; /* Ajusta el ancho del Sidebar según tus necesidades */
-  height: 100vh;
-  position: fixed; /* Asegura que el Sidebar esté fijo en la página */
+  width: 517px;
+  height: 100%;
+  position: fixed;
   top: 0;
-  right: 0; /* Sidebar a la derecha */
+  right: 0;
   display: flex;
   flex-direction: column;
-  padding: 300px 40px; /* Ajusta el padding para el contenido interno */
-
-  .logo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .menu-item {
-    font-size: 18px;
-    color: black; /* Cambia el color del texto según el diseño */
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.2); /* Fondo al pasar el ratón */
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-  }
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f1f3;
+  gap: 60px;
 
   .summary {
-    margin-top: 20px; /* Espacio arriba del resumen */
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente */
-    border-radius: 10px;
+    width: 288px;
+    max-height: 180px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
+    gap: 40px;
+    overflow-y: auto;
   }
 
-  .summary-header {
-    font-size: 18px;
+  .summary-title {
+    width: 100%;
+    font-family: Verdana;
+    font-size: 14px;
     font-weight: 700;
-    color: black; /* Color del texto del encabezado */
+    line-height: 17.01px;
+    letter-spacing: 0.04em;
+    color: #212121;
   }
 
   .summary-content {
-    font-size: 14px;
-    color: black; /* Color del texto del contenido */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .summary-row {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin: 5px 0;
   }
 
   .summary-label {
-    font-size: 14px;
-    color: black; /* Color del texto de las etiquetas */
+    width: 65%;
+    text-align: left;
   }
 
   .summary-value {
+    width: 35%;
+    text-align: right;
+  }
+
+  .summary-label,
+  .summary-value {
+    font-family: Verdana;
     font-size: 14px;
-    color: black; /* Color del texto de los valores */
+    font-weight: 400;
+    line-height: 17.01px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    color: #9b9faa;
   }
 
   @media screen and (max-width: 768px) {
-    width: 200px; /* Ancho reducido para pantallas más pequeñas */
-    padding: 10px; /* Menos padding en pantallas más pequeñas */
+    position: relative;
+    padding-left: 32px;
+    width: 100%;
+    flex-direction: row;
+    gap: 80px;
+    align-items: center;
+    justify-content: start;
   }
 
-  @media screen and (max-width: 480px) {
-    width: 150px; /* Ancho aún más reducido para pantallas móviles */
-    padding: 5px; /* Menos padding en pantallas móviles */
+  @media screen and (max-width: 320px) {
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(252, 132, 45, 0.5);
+    border-radius: 10px;
+    border: none;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f0f1f3;
+    border-radius: 10px;
+    border: none;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
   }
 `;
 
