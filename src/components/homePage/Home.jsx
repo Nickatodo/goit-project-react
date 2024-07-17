@@ -19,6 +19,7 @@ import { reset } from '../../redux/slices/caloriesSlice';
 
 import IconcloseModal from '../../img/svg/x.svg';
 import backModal from '../../img/svg/back.svg';
+import Button from '../Button/Button';
 
 Modal.setAppElement('#root');
 
@@ -42,6 +43,7 @@ const Home = () => {
   const loading = useSelector(selectCaloriesLoading);
   const error = useSelector(selectCaloriesError);
   const calories = useSelector(selectCalories);
+
   const products = useSelector(selectProducts);
 
   const handleInputChange = e => {
@@ -85,113 +87,129 @@ const Home = () => {
 
   return (
     <HomeStyled>
-      <h1 className="title">
-        Calcula tu ingesta diaria de calorías ahora mismo
-      </h1>
+      <h1 className="title">Calculate your daily calorie intake right now</h1>
 
       <form className="form" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <input
-            type="number"
-            id="height"
-            name="height"
-            value={formData.height}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="height">Altura*</label>
-        </div>
-
-        <div className="form-group">
-          <input
-            type="number"
-            id="desired-weight"
-            name="desiredWeight"
-            value={formData.desiredWeight}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="desired-weight">Peso deseado*</label>
-        </div>
-
-        <div className="form-group">
-          <input
-            type="number"
-            id="age"
-            name="age"
-            value={formData.age}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="age">Edad*</label>
-        </div>
-
-        <div className="form-group">
-          <input
-            type="number"
-            id="current-weight"
-            name="currentWeight"
-            value={formData.currentWeight}
-            onChange={handleInputChange}
-            required
-          />
-          <label htmlFor="current-weight">Peso actual*</label>
-        </div>
-
-        <div className="radio-group">
-          <label className="radio-label">
+        <div className="form-inputs">
+          <div className="form-group">
             <input
-              type="radio"
-              id="option1"
-              name="option"
-              value="A"
-              onChange={handleBloodChange}
+              type="number"
+              id="height"
+              name="height"
+              value={formData.height}
+              onChange={handleInputChange}
               required
             />
-            1
-          </label>
+            <label htmlFor="height" className="form-label">
+              Height*
+            </label>
+          </div>
 
-          <label className="radio-label">
+          <div className="form-group">
             <input
-              type="radio"
-              id="option2"
-              name="option"
-              value="B"
-              onChange={handleBloodChange}
+              type="number"
+              id="desired-weight"
+              name="desiredWeight"
+              value={formData.desiredWeight}
+              onChange={handleInputChange}
+              required
             />
-            2
-          </label>
+            <label htmlFor="desired-weight" className="form-label">
+              Desired weight *
+            </label>
+          </div>
 
-          <label className="radio-label">
+          <div className="form-group">
             <input
-              type="radio"
-              id="option3"
-              name="option"
-              value="AB"
-              onChange={handleBloodChange}
+              type="number"
+              id="age"
+              name="age"
+              value={formData.age}
+              onChange={handleInputChange}
+              required
             />
-            3
-          </label>
+            <label htmlFor="age" className="form-label">
+              Age *
+            </label>
+          </div>
 
-          <label className="radio-label">
+          <div className="form-group">
+            <label htmlFor="blood-group" className="form-label">
+              Blood type *
+            </label>
+          </div>
+
+          <div className="form-group">
             <input
-              type="radio"
-              id="option4"
-              name="option"
-              value="O"
-              onChange={handleBloodChange}
+              type="number"
+              id="current-weight"
+              name="currentWeight"
+              value={formData.currentWeight}
+              onChange={handleInputChange}
+              required
             />
-            4
-          </label>
+            <label htmlFor="current-weight" className="form-label">
+              Current weight *
+            </label>
+          </div>
+
+          <div className="form-group form-group-radio">
+            <div className="radio-option">
+              <input
+                type="radio"
+                id="option1"
+                name="option"
+                value="A"
+                onChange={handleBloodChange}
+                required
+              />
+              <p className="radio-label">1</p>
+            </div>
+            <div className="radio-option">
+              <input
+                type="radio"
+                id="option2"
+                name="option"
+                value="B"
+                onChange={handleBloodChange}
+              />
+              <p className="radio-label">2</p>
+            </div>
+            <div className="radio-option">
+              <input
+                type="radio"
+                id="option3"
+                name="option"
+                value="AB"
+                onChange={handleBloodChange}
+              />
+              <p className="radio-label">3</p>
+            </div>
+            <div className="radio-option">
+              <input
+                type="radio"
+                id="option4"
+                name="option"
+                value="O"
+                onChange={handleBloodChange}
+              />
+              <p className="radio-label">4</p>
+            </div>
+          </div>
         </div>
-
-        <div className="form-group" style={{ width: '240px' }}>
-          <label htmlFor="blood-group">Grupo sanguíneo*</label>
+        <div className="form-btn">
+          <Button
+            type={'submit'}
+            text={'Start losing weight'}
+            fontFamily={'Verdana'}
+            fontSize={14}
+            weight={700}
+            primaryColor={'#FC842D'}
+            secondaryColor={'#FFF'}
+            width={210}
+            height={44}
+          />
         </div>
-
-        <button type="submit" className="form-button_home">
-          Comienza a perder peso
-        </button>
       </form>
 
       <Modal
@@ -222,14 +240,14 @@ const Home = () => {
               </svg>
             </button>
             <p className="modal__Intake">
-              Tu ingesta diaria recomendad de calorias es{' '}
+              Your recommended daily calorie intake is{' '}
             </p>
-            <p className="modal__calories">{calories}kcal</p>
-            <h3 className="modal__foods">Alimentos que no deberias comer</h3>
+            <p className="modal__calories">{calories} kcal</p>
+            <h3 className="modal__foods">Foods you should not eat</h3>
             <ul className="modal__list_foods">
-              {products.slice(0, 4).map(product => (
-                <li className="List__Products" key={product._id}>
-                  {product.title}
+              {products.slice(0, 4).map((product, index) => (
+                <li key={product._id}>
+                  {index + 1}. {product.title}
                 </li>
               ))}
             </ul>

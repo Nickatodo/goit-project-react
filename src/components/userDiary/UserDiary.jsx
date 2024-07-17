@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import Datetime from 'react-datetime';
-import '../../css/styles.css';
 import 'react-datetime/css/react-datetime.css';
 import dayjs from 'dayjs';
+import './calculator.css';
 
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

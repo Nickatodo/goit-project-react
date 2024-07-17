@@ -38,14 +38,14 @@
 }
 
 .btn-secondary::after {
-  content: "";
+  content: '';
   position: absolute;
   background: var(--primary-color);
   width: calc(var(--width) * 1px);
-  height: calc(var(--width) * 1px);
+  height: calc(var(--width) * 0.5px);
   transition: 0.25s ease;
   transform: rotate(-60deg);
-  top: -350%;
+  top: -50%;
   left: -150%;
 }
 
@@ -54,6 +54,7 @@
 .btn-secondary:active,
 .btn-secondary:focus-visible,
 .btn-secondary:focus-within {
+  backdrop-filter: blur(10px);
   color: var(--primary-color);
 }
 

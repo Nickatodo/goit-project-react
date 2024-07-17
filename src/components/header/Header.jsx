@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../redux/slices/authSlice';
 import { logoutThunk } from '../../redux/operators/authOperator';
@@ -14,9 +14,15 @@ import {
   NavLogoName,
   NavLogoName2,
   NavList,
+  NavUserList,
   NavItem,
   NavLink,
+  UserName,
+  LogOutBtn,
+  MenuToggleBtn,
 } from './HeaderStyled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '../../img/logo.png';
 import symbolDefs from '../../img/svg/symbol-defs.svg';
@@ -26,9 +32,15 @@ const Header = () => {
   const isLogged = useSelector(selectIsLogged);
   const name = useSelector(selectName);
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const handleLogout = () => {
     dispatch(logoutThunk());
     dispatch(logout());
+  };
+
+  const handleToggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -36,11 +48,11 @@ const Header = () => {
       <Nav>
         <NavLink to={'/goit-project-react'}>
           <NavContainerLogo>
-            <NavLogo src={logo} width="60" height="56" />
-            <NavLogoName width="48" height="16">
+            <NavLogo src={logo} />
+            <NavLogoName>
               <use xlinkHref={`${symbolDefs}#icon-Slim`} />
             </NavLogoName>
-            <NavLogoName2 width="52" height="16">
+            <NavLogoName2>
               <use xlinkHref={`${symbolDefs}#icon-Mom`} />
             </NavLogoName2>
           </NavContainerLogo>
@@ -54,14 +66,6 @@ const Header = () => {
               <NavItem>
                 <NavLink to="/goit-project-react/user-calculator">
                   Calculator
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <span>{name}</span>
-              </NavItem>
-              <NavItem>
-                <NavLink onClick={handleLogout}>
-                  <button>Logout</button>
                 </NavLink>
               </NavItem>
             </>
@@ -78,6 +82,27 @@ const Header = () => {
             </>
           )}
         </NavList>
+        {isLogged && (
+          <>
+            <NavUserList>
+              <NavItem>
+                <UserName>{name}</UserName>
+              </NavItem>
+              <NavItem className="logout">
+                <NavLink onClick={handleLogout}>
+                  <LogOutBtn>Logout</LogOutBtn>
+                </NavLink>
+              </NavItem>
+            </NavUserList>
+            <MenuToggleBtn onClick={handleToggleMenu}>
+              {menuOpen ? (
+                <FontAwesomeIcon icon={faTimes} />
+              ) : (
+                <FontAwesomeIcon icon={faBars} />
+              )}
+            </MenuToggleBtn>
+          </>
+        )}
       </Nav>
     </HeaderContainer>
   );
