@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
   top: 80px;
   width: 100%;
   height: 80px;
+  z-index: 1;
 
   @media screen and (max-width: 768px) {
     top: 0;

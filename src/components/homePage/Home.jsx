@@ -216,7 +216,6 @@ const Home = () => {
         contentLabel="Calories"
         className={'modal'}
       >
-        <h2 className="Result">Resultados</h2>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
