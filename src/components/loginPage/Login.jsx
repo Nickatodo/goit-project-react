@@ -1,9 +1,10 @@
 import React from 'react';
-import '../../css/styles.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../redux/operators/authOperator';
 import { useNavigate } from 'react-router-dom';
+import Button from '../Button/Button';
+import './login.css';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function LoginPage() {
       if (response.meta.requestStatus === 'fulfilled') {
         navigate('/goit-project-react/user-calculator');
       } else {
-        alert(`Credenciales incorrectas`);
+        alert(`Wrong data. Try again!`);
       }
     } catch (error) {
       console.error('An error occurred:', error);
@@ -38,54 +39,66 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <main>
-        <div className="login-form-container">
-          <h2 className="login-title">Log in</h2>
-          <form className="login-form" id="loginForm" onSubmit={handleSubmit}>
-            <div className="login-form-group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="form-input"
-                placeholder=" "
-                required
-                onChange={handleEmailChange}
-              />
-              <label htmlFor="email" className="form-label">
-                Email *
-              </label>
-            </div>
-            <div className="login-form-group">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="form-input"
-                placeholder=" "
-                required
-                onChange={handlePasswordChange}
-              />
-              <label htmlFor="password" className="form-label">
-                Password *
-              </label>
-            </div>
-            <div className="login-form-group">
-              <button type="submit" className="login-button">
-                Log in
-              </button>
-              <button
-                onClick={handleregister}
-                type="button"
-                className="register-button"
-              >
-                Register
-              </button>
-            </div>
-          </form>
-        </div>
-      </main>
-    </div>
+    <>
+      <div className="login-form-container">
+        <h2 className="login-title">Log in</h2>
+        <form className="login-form" id="loginForm" onSubmit={handleSubmit}>
+          <div className="login-form-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="form-input"
+              placeholder=" "
+              required
+              onChange={handleEmailChange}
+            />
+            <label htmlFor="email" className="form-label">
+              Email *
+            </label>
+          </div>
+          <div className="login-form-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="form-input"
+              placeholder=" "
+              required
+              onChange={handlePasswordChange}
+            />
+            <label htmlFor="password" className="form-label">
+              Password *
+            </label>
+          </div>
+          <div className="login-form-group">
+            <Button
+              type={'submit'}
+              text={'Log in'}
+              fontFamily={'Verdana'}
+              fontSize={14}
+              weight={700}
+              primaryColor={'#FC842D'}
+              secondaryColor={'#FFF'}
+              width={180}
+              height={44}
+            />
+            <Button
+              type={'button'}
+              text={'Register'}
+              secondary={true}
+              fontFamily={'Verdana'}
+              fontSize={14}
+              weight={700}
+              primaryColor={'#FC842D'}
+              secondaryColor={'#FFF'}
+              width={180}
+              height={44}
+              onClick={handleregister}
+            />
+          </div>
+        </form>
+      </div>
+    </>
   );
 }

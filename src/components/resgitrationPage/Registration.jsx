@@ -1,9 +1,10 @@
 import React from 'react';
-import '../../css/styles.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerThunk } from '../../redux/operators/registrationOperator';
 import { useNavigate } from 'react-router-dom';
+import Button from '../Button/Button';
+import './register.css';
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const RegistrationPage = () => {
     <div>
       <main>
         <div className="registration-form-container">
-          <h2 className="registration-title">Registration</h2>
+          <h2 className="registration-title">Register</h2>
           <form
             className="registration-form"
             id="registrationForm"
@@ -95,16 +96,30 @@ const RegistrationPage = () => {
               </label>
             </div>
             <div className="registration-form-group">
-              <button type="submit" className="register-button">
-                Register
-              </button>
-              <button
+              <Button
+                type={'submit'}
+                text={'Register'}
+                fontFamily={'Verdana'}
+                fontSize={14}
+                weight={700}
+                primaryColor={'#FC842D'}
+                secondaryColor={'#FFF'}
+                width={182}
+                height={44}
+              />
+              <Button
+                type={'button'}
+                text={'Log in'}
+                secondary={true}
+                fontFamily={'Verdana'}
+                fontSize={14}
+                weight={700}
+                primaryColor={'#FC842D'}
+                secondaryColor={'#FFF'}
+                width={182}
+                height={44}
                 onClick={handleLogin}
-                type="button"
-                className="login-button"
-              >
-                Log in
-              </button>
+              />
             </div>
           </form>
         </div>
