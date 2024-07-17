@@ -214,6 +214,7 @@ const Home = () => {
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Calories"
+        className={'modal'}
       >
         <h2 className="Result">Resultados</h2>
         {loading ? (
@@ -221,14 +222,14 @@ const Home = () => {
         ) : error ? (
           <p>Error : {error.message}</p>
         ) : (
-          <div>
+          <div className="modal__container">
             <button
               data-modal-close
-              className="modal__close_button"
+              class="modal__close_button"
               onClick={closeModal}
               type="button"
             >
-              <svg width="20" height="20" fill="black">
+              <svg width="20" height="20">
                 <use xlinkHref={`${IconcloseModal}#icon-x`} />
               </svg>
             </button>
@@ -247,9 +248,17 @@ const Home = () => {
                 </li>
               ))}
             </ul>
-            <button className="Modal-button_close" onClick={closeModal}>
-              Start losing weight
-            </button>
+            <Button
+              text={'Start losing weight'}
+              fontFamily={'Verdana'}
+              fontSize={14}
+              weight={700}
+              primaryColor={'#FC842D'}
+              secondaryColor={'#FFF'}
+              width={210}
+              height={44}
+              onClick={closeModal}
+            />
           </div>
         )}
       </Modal>

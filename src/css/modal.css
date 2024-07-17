@@ -3,12 +3,28 @@
   height: 574px;
   top: 138px;
   left: 304px;
-  gap: 0px;
-  opacity: 0px;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 1);
   box-shadow: 0px 22px 40px 0px rgba(0, 0, 0, 0.1);
   margin-left: 300px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(224, 224, 224, 1);
+}
+
+.modal__container {
+  display: inline-block;
+  position: absolute;
+  width: 672px;
+  height: 574px;
+}
+
+.modal__close_button {
+  fill: black;
+  left: 645px;
+  opacity: 1;
+  position: relative;
+  border: none;
+  background-color: white;
+  width: 20px;
+  height: 20px;
 }
 
 .Result {
@@ -23,16 +39,31 @@
   height: 70px;
   top: 202px;
   left: 386px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Verdana;
   font-size: 26px;
   font-weight: 700;
   line-height: 36.4px;
   text-align: center;
-  color: #212121;
+  color: rgba(33, 33, 33, 1);
   margin-left: 70px;
   margin-top: 50px;
+  align-content: center;
+  align-items: center;
+  color: rgba(33, 33, 33, 1);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal_calories_container {
+  width: 330px;
+  height: 62px;
+  top: 292px;
+  left: 475px;
+  display: flex;
+  align-items: flex-end;
+  column-gap: 20px;
+  align-items: baseline;
 }
 
 .modal__calories {
@@ -40,54 +71,60 @@
   height: 62px;
   top: 292px;
   left: 475px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Verdana;
   font-size: 48px;
   font-weight: 700;
   line-height: 58.34px;
   letter-spacing: 0.04em;
   text-align: center;
-  font-size: 26px;
-  line-height: 31.6px;
   letter-spacing: 0.04em;
   margin-top: 30px;
   margin-left: 170px;
-  color: #264061;
+  color: rgba(38, 64, 97, 1);
+  display: flex;
+  justify-content: center;
+}
+
+.modal__calories-units {
+  font-family: Verdana;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 31.6px;
+  letter-spacing: 0.04em;
+  color: rgba(38, 64, 97, 1);
+  display: flex;
+  justify-content: center;
 }
 
 .modal__foods {
   width: 330px;
   height: 17px;
-  top: 398px;
   margin-left: 175px;
-  gap: 0px;
-  opacity: 0px;
   font-family: Verdana;
   font-size: 14px;
   font-weight: 700;
   line-height: 17.01px;
   letter-spacing: 0.04em;
   text-align: left;
-  margin-top: 15px;
-  color: #212121;
+  margin-top: 50px;
+  color: rgba(33, 33, 33, 1);
+  display: flex;
 }
 
 .modal__list_foods {
   display: flexbox;
   width: 222px;
   height: 112px;
-  top: 435px;
-  left: 475px;
+  top: 50px;
+  left: 40px;
   gap: 14px;
-  opacity: 0px;
   font-family: Verdana;
   font-size: 14px;
   font-weight: 400;
   line-height: 17.01px;
   letter-spacing: 0.04em;
   text-align: left;
-  color: #9b9faa;
+  color: rgba(155, 159, 170, 1);
   list-style: number;
   margin-top: 20px;
   margin-left: 195px;
@@ -97,42 +134,10 @@
   margin-top: 20px;
 }
 
-.Modal-button_close {
-  padding: 10px 20px;
-  margin-top: 16px;
-  background-color: #fc842d;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-  width: 210px;
-  height: 43px;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
-  position: relative;
-  left: 220px;
-  top: 80px;
-}
-
-.modal__close_button {
-  fill: #212121;
-  top: 12px;
-  right: 12px;
-  opacity: 1;
-  position: absolute;
-  border: none;
-  background-color: #fff;
-}
-
 @media screen and (max-width: 900px) and (min-width: 600px) {
   .ReactModal__Content {
     margin-left: 30px;
     margin-top: 100px;
-  }
-  .modal__back-movile {
-    display: none;
   }
 }
 
@@ -144,15 +149,27 @@
     border: none;
     box-shadow: none;
     border-radius: none;
+    overflow: none;
   }
+
+  .modal__close_button {
+    fill: black;
+    left: 395px;
+    opacity: 1;
+    position: relative;
+    border: none;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+  }
+
   .modal__Intake {
     margin-left: 0px;
     width: 280px;
     height: 50px;
     top: 10px;
     left: 20px;
-    gap: 0px;
-    opacity: 0px;
+    margin-left: 0px;
     font-family: Verdana;
     font-size: 18px;
     font-weight: 700;
@@ -160,77 +177,42 @@
     text-align: left;
     position: relative;
   }
-}
 
-.modal__calories {
-  width: 280px;
-  height: 62px;
-  top: 10px;
-  left: 20px;
-  gap: 0px;
-  opacity: 0px;
-  margin-left: 0px;
-  font-family: Verdana;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 58.34px;
-  letter-spacing: 0.04em;
-  text-align: center;
-  position: relative;
-}
+  .modal__calories {
+    width: 280px;
+    height: 62px;
+    top: 10px;
+    left: 20px;
+    margin-left: 0px;
+    font-family: Verdana;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58.34px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    position: relative;
+  }
+  .modal__foods {
+    margin-left: 0px;
+    width: 280px;
+    height: 17px;
+    top: 25px;
+    left: 20px;
+    position: relative;
+  }
 
-.modal__foods {
-  margin-left: 0px;
-  width: 280px;
-  height: 17px;
-  top: 25px;
-  left: 20px;
-  gap: 0px;
-  opacity: 0px;
-  position: relative;
-}
-
-.modal__list_foods {
-  margin-left: 0px;
-  width: 280px;
-  height: 112px;
-  top: 50px;
-  left: 40px;
-  gap: 0px;
-  opacity: 0px;
-  font-family: Verdana;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17.01px;
-  letter-spacing: 0.04em;
-  text-align: left;
-  position: relative;
-}
-
-.modal__close_button {
-  display: none;
-}
-
-.Modal-button_close {
-  width: 210px;
-  height: 43px;
-  padding: 13px 4px 13px 5px;
-  gap: 10px;
-  opacity: 0px;
-  background: #fc842d;
-  padding: 10px 20px;
-  margin-top: 16px;
-  background-color: #fc842d;
-  color: #ffffff;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
-  align-content: center;
-  align-items: center;
-  top: 100px;
-  display: flex;
+  .modal__list_foods {
+    margin-left: 0px;
+    width: 280px;
+    height: 112px;
+    top: 50px;
+    left: 40px;
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.01px;
+    letter-spacing: 0.04em;
+    text-align: left;
+    position: relative;
+  }
 }
