@@ -17,7 +17,6 @@ import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import { reset } from '../../redux/slices/caloriesSlice';
 
 import IconcloseModal from '../../img/svg/x.svg';
-import backModal from '../../img/svg/back.svg';
 import Button from '../Button/Button';
 
 Modal.setAppElement('#root');
@@ -223,11 +222,6 @@ const Home = () => {
           <p>Error : {error.message}</p>
         ) : (
           <div>
-            <div className="modal__back-movile">
-              <svg width="20" height="20" fill="black">
-                <use xlinkHref={`${backModal}#icon-Vector-9`} />
-              </svg>
-            </div>
             <button
               data-modal-close
               className="modal__close_button"
