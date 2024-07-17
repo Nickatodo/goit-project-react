@@ -202,26 +202,24 @@ const Home = () => {
         ) : error ? (
           <p>Error : {error.message}</p>
         ) : (
-          <div>
-            <div className='modal__back-movile'>
-            <svg  width="20" height="20" fill='black'>
-            <use xlinkHref={`${backModal}#back-close-modal`} />
-            </svg>
-            </div>
+          <div className='modal__container'>
             <button data-modal-close class="modal__close_button" onClick={closeModal} type="button">
-            <svg  width="20" height="20" fill='black'>
-            <use xlinkHref={`${IconcloseModal}#icon-close-modal`} />
+            <svg  width="20" height="20" >
+            <use  xlinkHref={`${IconcloseModal}#icon-x`} />
             </svg>
             </button>
-            <p className='modal__Intake'>Tu ingesta diaria recomendad de calorias es </p>
-            <p className='modal__calories'>{calories}kcal</p>
-            <h3 className='modal__foods'>Alimentos que no deberias comer</h3>
+            <p className='modal__Intake'>Your recommended daily calorie intake is </p>
+            <div className='modal_calories_container'>
+            <p className='modal__calories'>{calories} </p>
+            <p className='modal__calories-units'>ккал </p>
+            </div>
+            <h3 className='modal__foods'>Foods you should not eat</h3>
             <ul className='modal__list_foods'>
               {products.slice(0, 4).map(product => (
                 <li className='List__Products' key={product._id}>{product.title}</li>
               ))}
             </ul>
-            <button className="Modal-button_close" onClick={closeModal}>Comienza a perder peso</button>
+            <button className="Modal-button_close" onClick={closeModal}>Start losing weight</button>
           </div>
         )}
       </Modal>
