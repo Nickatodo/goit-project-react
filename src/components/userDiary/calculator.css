@@ -1,3 +1,28 @@
+.diary_container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  font-family: 'Jost', sans-serif;
+  padding-top: 293px;
+  width: 100%;
+  height: calc(100vh - 293px);
+  overflow-y: auto;
+}
+
+.date_container {
+  display: flex;
+}
+
+.date_text {
+  font-family: Verdana;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 41.32px;
+  text-align: left;
+  color: #212121;
+}
+
 .diary-form {
   max-width: 400px;
   margin: 0 0;
@@ -36,29 +61,56 @@
   cursor: text;
 }
 
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label,
-.form-input:valid + .form-label {
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label,
+.form-input:valid+.form-label {
   top: -20px;
   left: 0;
   font-size: 12px;
   color: rgb(0, 0, 0);
 }
 
-.diary-button {
-  font-size: 16px;
-  background-color: #fc842d;
-  color: #ffffff;
-  border: transparent;
-  border-radius: 50px;
+.remove-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  padding: 10px 15px;
+  color: #FF0000;
 }
 
-.diary-button:hover {
-  box-shadow: 0px 4px 10px 0px rgba(252, 132, 45, 0.5);
+.remove-button:hover {
+  background-color: #700000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.diary_table-container {
+  display: flex;
+  margin-top: 40px;
+  width: 615px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.diary_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.diary_table tr {
+  border-bottom: 1px solid black;
+}
+
+.diary_table th {
+  padding: 10px;
+  text-align: left;
+}
+
+.diary_table td {
+  padding: 10px;
 }

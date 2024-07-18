@@ -19,7 +19,9 @@ import {
 } from '@tanstack/react-table';
 import { selectIsLogged } from '../../redux/selectors/authSelectors';
 import ProductSelector from './ProductsSelect';
-import Sidebar from '../sideBar/SideBar'; // Importa el nuevo Sidebar
+import Sidebar from '../sideBar/SideBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 
 const UserDiary = () => {
   const dispatch = useDispatch();
@@ -127,12 +129,10 @@ const UserDiary = () => {
         id: 'actions',
         header: 'Eliminar',
         cell: info => (
-          <button
+          <button className='remove-button'
             onClick={() => handleRemoveProduct(info.row.original)}
-            style={{ color: 'red', cursor: 'pointer' }}
           >
-            {' '}
-            Eliminar
+            <FontAwesomeIcon icon={faTrashCan} />
           </button>
         ),
       },
@@ -149,22 +149,24 @@ const UserDiary = () => {
   });
 
   return (
-    <div>
-      <h3>Seleccione una fecha:</h3>
-      <Datetime
-        value={memoizedSelectedDate.toDate()}
-        onChange={handleDateChange}
-        isValidDate={validDate}
-        dateFormat="DD-MM-YYYY"
-        timeFormat={false}
-        closeOnSelect={true}
-      />
-      <p>
-        Fecha seleccionada:{' '}
-        {memoizedSelectedDate.isValid()
-          ? memoizedSelectedDate.format('DD-MM-YYYY')
-          : 'Ninguna'}
-      </p>
+    <div className='diary_container'>
+      <div className='date_container'>
+        <p className='date_text'>
+          {memoizedSelectedDate.isValid()
+            ? memoizedSelectedDate.format('DD-MM-YYYY')
+            : 'DD-MM-YYYY'}
+        </p>
+
+        <Datetime
+          value={memoizedSelectedDate.toDate()}
+          onChange={handleDateChange}
+          isValidDate={validDate}
+          dateFormat='DD-MM-YYYY'
+          timeFormat={false}
+          closeOnSelect={true}
+          className='date_selector'
+        />
+      </div>
 
       <ProductSelector
         selectedProduct={selectedProduct}
@@ -181,42 +183,35 @@ const UserDiary = () => {
         <p>No hay datos disponibles para la fecha seleccionada.</p>
       )}
 
-      {/* Tabla para mostrar datos */}
-      <table
-        style={{ marginTop: '20px', width: '50%', borderCollapse: 'collapse' }}
-      >
-        <thead>
-          {table.getHeaderGroups().map(headerGroup => (
-            <tr
-              key={headerGroup.id}
-              style={{ borderBottom: '1px solid black' }}
-            >
-              {headerGroup.headers.map(header => (
-                <th
-                  key={header.id}
-                  style={{ padding: '10px', textAlign: 'left' }}
-                >
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map(row => (
-            <tr key={row.id} style={{ borderBottom: '1px solid black' }}>
-              {row.getVisibleCells().map(cell => (
-                <td key={cell.id} style={{ padding: '10px' }}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className='diary_table-container'>
+        <table className='diary-table'>
+          <thead>
+            {table.getHeaderGroups().map(headerGroup => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map(header => (
+                  <th key={header.id}>
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map(row => (
+              <tr key={row.id}>
+                {row.getVisibleCells().map(cell => (
+                  <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       {isLogged && <Sidebar />}
     </div>
   );

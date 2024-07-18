@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { diaryProductsThunk } from '../../redux/operators/productOperator';
+import Button from '../Button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const ProductSelector = ({
   selectedProduct,
@@ -48,9 +51,16 @@ const ProductSelector = ({
         style={{ marginRight: '10px' }}
       />
 
-      <button onClick={() => handleAddProduct(selectedProductCalories)}>
-        Añadir
-      </button>
+      <Button
+        text={''}
+        primaryColor={'#FC842D'}
+        secondaryColor={'#FFF'}
+        width={48}
+        height={48}
+        onClick={() => handleAddProduct(selectedProductCalories)}
+      >
+        <FontAwesomeIcon icon={faPlus} />
+      </Button>
     </div>
   );
 };
